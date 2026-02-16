@@ -1,0 +1,457 @@
+/* 1. EVRENSEL SIFIRLAMA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. ANA SAYFA AYARLARI */
+:root {
+    --header-dark: #311b92;      /* En Koyu Mor (Main Header) */
+    --sub-header: #4527a0;       /* Orta Koyu Mor (Board Header) */
+    --content-bg: #512da8;       /* İki Ton Açık Mor (Arka Plan) */
+    --column-lila: #dcd0ff;   /* Tatlı bir lila (Kolon için) */
+    --card-light-lila: #f3f0ff; /* Çok açık lila (Kart için) */
+    --hover-purple: #6a1b9a;  /* Kart çerçevesi için koyu mor */
+    --text-on-dark: #ffffff;     /* Koyu zemindeki yazı rengi */
+    --text-on-light: #172b4d;    /* Açık zemindeki yazı rengi */
+}
+
+body {
+    background-color: var(--content-bg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-on-dark);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. ORTAK HEADER AYARLARI */
+.main-header, .board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+/* 4. ANA ÜST HEADER (MAIN HEADER) */
+.main-header {
+    background-color: var(--header-dark);
+    height: 48px;
+}
+
+.header-left, .header-center, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Logo ve Yazılar */
+.logo-text, .logo-icon i {
+    color: white;
+    font-weight: bold;
+}
+
+/* Arama Kutusu */
+.search-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s;
+    width: 500px;
+}
+
+.search-container:focus-within {
+    background-color:#dcd0ff;
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    height: 32px;
+    padding: 0 8px;
+    color: white;
+    width: 180px;
+}
+
+.search-container:focus-within .search-input {
+    color: black;
+}
+/* Create Butonu Özel Stili */
+.create-btn {
+    background-color: var(--column-lila) !important; /* Kolon rengi (Lila) */
+    color: var(--header-dark) !important;           /* Header koyu moru */
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s; /* Hover için hafif karartma efekti */
+}
+
+.create-btn:hover {
+    filter: brightness(0.9); /* Üzerine gelince lila rengi çok hafif koyulaşır */
+    background-color: var(--column-lila) !important; /* Rengin değişmesini engeller */
+}
+/* 5. ALT HEADER (BOARD HEADER) */
+.board-header {
+    background-color: var(--sub-header);
+    height: 52px;
+    display: flex;
+    justify-content: space-between; /* Sol ve sağ grupları uçlara iter */
+    align-items: center;
+    padding: 0 16px;
+}
+
+.board-left, .board-right {
+    display: flex;           /* İçindeki elemanları yan yana dizer */
+    align-items: center;      /* Dikeyde tam ortalar */
+    gap: 12px;               /* Elemanların arasına nefes aldıracak boşluk bırakır */
+}
+
+.board-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-right: 4px;       /* Başlık ile yanındaki ikon arasında az bir boşluk */
+}
+
+/* 6. TÜM BUTONLARIN ORTAK STİLİ */
+.main-header button, .board-btn {
+    background-color: transparent; /* Varsayılan hali şeffaf olsun */
+    border: none;
+    color: white;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease; /* Hover geçişi yumuşak olsun */
+}
+.main-header button i, .board-btn i {
+    color: white;
+}
+
+/* Sadece üzerine gelindiğinde hafif bir beyazlık/parlama gelsin */
+.main-header button:hover, .board-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+/* 6.1. ÖZEL MENÜ BUTONU (DEVELOPMENT YANINDAKİ) */
+.menu-arrow-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Trello ikonu ile ok arasındaki boşluk */
+    padding: 0 10px;
+    /* .board-btn'den gelen özellikleri korur ama üzerine bunları ekler */
+}
+
+/* Ok ikonunu biraz daha küçük ve zarif yapalım */
+.menu-arrow-btn .arrow-icon {
+    font-size: 10px; 
+    opacity: 0.8;
+}
+
+/* Ana Trello ikonunun boyutu */
+.menu-arrow-btn .fa-trello {
+    font-size: 14px;
+}
+
+/* 7. PROFİL AVATARI */
+.profile-avatar {
+    background-color: #d4b2d8;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.avatar-text {
+    color: var(--header-dark); /* Koyu mor yazı ile kontrast sağladık */
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 8. ANA İÇERİK ALANI */
+.board-content {
+    display: flex;
+    flex: 1;
+    padding: 16px;
+    gap: 16px;
+    overflow-x: auto;
+    align-items: flex-start;
+    background-color: var(--content-bg);
+}
+
+.column {
+    background-color: var(--column-lila);
+    width: 280px;
+    min-width: 280px;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between; /* Başlığı sola, ikonu en sağa iter */
+    align-items: center;            /* İkisini dikeyde aynı hizaya getirir */
+    padding: 8px 4px 12px 8px;      /* Alt taraftaki boşluk kartlarla mesafeyi korur */
+    width: 100%;                    /* Genişliğin tamamını kaplamasını sağlar */
+}
+
+.column-header h3 {
+    margin: 0;                      /* Tarayıcının verdiği varsayılan boşlukları sıfırlar */
+    font-size: 16px;
+    color: var(--text-on-light);
+}
+
+/* KART AYARLARI */
+.card {
+    background-color: var(--card-light-lila);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: grab;
+    /* Başlangıçta görünmez bir çerçeve ekliyoruz ki hover olunca kart titremesin */
+    border: 1.5px solid transparent; 
+    transition: all 0.2s ease; /* Yumuşak geçiş için */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+/* KARTIN ÜZERİNE GELİNDİĞİNDE (HOVER) */
+.card:hover {
+    /* İstediğin o koyu mor ince çerçeve */
+    border: 1.5px solid var(--hover-purple); 
+    background-color: #ffffff; /* Üzerine gelince kart tam beyaz parlayabilir */
+    transform: translateY(-1px); /* Çok hafif bir yükselme hissi */
+}
+.card.dragging {
+    opacity: 0.2;
+    background-color: #eee;
+}
+.card p {
+    color: #4a148c; /* Yazı rengi de lila ile uyumlu çok koyu bir mor */
+    font-size: 14px;
+    font-weight: 500;
+}
+.card-list {
+    min-height: 5px; /* Kolon boş olsa bile belirli piksellik bir alan her zaman vardır */
+    padding-bottom: 5px; /* Kartların en alta yapışmaması için */
+    display: flex;
+    flex-direction: column;
+    gap: 2;
+    transition: background-color 0.2s ease; /* Sürükleyince parlaması için */
+    border-radius: 8px;
+}
+/* Sürüklerken kolona girdiğinde kullanıcıya 'buraya bırakabilirsin' diyen efekt */
+.card-list.drag-over {
+    background-color: rgba(255, 255, 255, 0.15);
+    outline: 2px dashed rgba(255, 255, 255, 0.2);
+}
+/* 9. BUTON ÖZELLİKLERİ (KOLON İÇİ) */
+.add-card-btn {
+    background-color: transparent;
+    border: none;
+    color: #5e6c84; /* Kart ekle yazısı çok baskın olmamalı */
+    text-align: left;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.add-card-btn:hover {
+    background-color: rgba(9, 30, 66, 0.08);
+    color: var(--text-on-light);
+}
+
+.column-menu-btn {
+    background-color: transparent !important;
+    border: none;
+    color: var(--text-on-light);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin-left: auto; /* İkonu sağa yaslamak için ek güvenlik */
+}
+
+.column-menu-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 10. LİSTE EKLEME (EN SAĞDAKİ) */
+.add-list-wrapper {
+    min-width: 280px;
+    background-color: rgba(255, 255, 255, 0.15); /* Morun üstünde cam efekti */
+    border-radius: 12px;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.add-list-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 12px 16px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-list-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* İKON DÜZELTMELERİ */
+button i {
+    font-size: 16px;
+}
+/* Menü Kapsayıcısı */
+.dropdown {
+    position: relative; /* Menünün butonun altında hizalanması için şart */
+}
+
+/* Gizli Menü Kutusu */
+.dropdown-menu {
+    display: none; /* Başlangıçta gizli */
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    color: #172b4d;
+    padding: 12px 0;
+}
+
+/* Menü "Açık" olduğunda bu class'ı JS ile ekleyeceğiz */
+.dropdown-menu.show {
+    display: block;
+    animation: fadeIn 0.2s ease; /* Küçük bir açılış animasyonu */
+}
+
+.menu-header {
+    text-align: center;
+    font-size: 18px;
+    color: #5e6c84;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ebecf0;
+    margin-bottom: 8px;
+}
+
+.menu-list {
+    list-style: none;
+}
+
+.menu-list li {
+    padding: 10px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.menu-list li:hover {
+    background-color: #f4f5f7;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* KOLON MENÜSÜ AYARLARI */
+.column-header {
+    position: relative; /* Menü konumu için şart */
+}
+
+.col-dropdown {
+    display: none; /* Başlangıçta gizli */
+    position: absolute;
+    top: 38px;
+    right: 4px;
+    background-color: white;
+    min-width: 170px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    padding: 8px 0;
+    animation: fadeIn 0.2s ease; /* Senin mevcut animasyonun */
+}
+
+.col-dropdown.show {
+    display: block;
+}
+
+.col-dropdown li {
+    padding: 10px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-on-light);
+    list-style: none;
+}
+
+.col-dropdown li:hover {
+    background-color: #f4f5f7;
+}
+
+.col-dropdown li.delete-col {
+    color: #b04632;
+    border-top: 1px solid #ebecf0;
+    margin-top: 5px;
+}
+/* TOOLTIP (Yazı Çıkartma) AYARLARI */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    background-color: #172b4d;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 2000;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+[data-tooltip]:hover::after {
+    transform: translateX(-50%) scale(1);
+    bottom: -40px;
+}

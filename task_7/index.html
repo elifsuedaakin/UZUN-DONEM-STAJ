@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+            <div class="header-left">
+               <button data-tooltip="Main Menu"><i class="fa-solid fa-bars"></i></button> 
+               <h1 class="logo"> 
+                 <span class="logo-icon"><i class="fa-brands fa-trello"></i></span> 
+                 <span class="logo-text">Trello</span>
+               </h1>
+            </div>
+
+            <div class="header-center">
+                <div class="search-container"> 
+                 <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span> 
+                 <input type="text" placeholder="Search" class="search-input">
+                </div>
+                <button class="create-btn">Create</button>
+            </div>
+
+            <div class="header-right">
+                <button class="header-icon-btn" data-tooltip="Notifications"><i class="fa-regular fa-bell"></i></button>
+                <button class="header-icon-btn" data-tooltip="Information"><i class="fa-regular fa-circle-question"></i></button>
+                
+                <div class="profile-avatar" data-tooltip="Account: EA">
+                    <span class="avatar-text">EA</span>
+                </div>
+            </div>
+    </header>
+
+    <nav class="board-header">
+     <div class="board-left">
+        <h2 class="board-title">Development</h2>
+       <div class="dropdown">
+        <button class="board-btn menu-arrow-btn" id="menuBtn" data-tooltip="Board Menu">
+            <i class="fa-brands fa-trello"></i>
+            <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <div class="menu-header">Board Actions</div>
+            <ul class="menu-list">
+                <li><i class="fa-solid fa-star"></i> Star Board</li>
+                <li><i class="fa-solid fa-copy"></i> Copy Board</li>
+                <li><i class="fa-solid fa-share-nodes"></i> Share Board</li>
+                <li class="delete"><i class="fa-solid fa-trash"></i> Close Board</li>
+            </ul>
+        </div>
+    </div>
+     </div>
+     <div class="board-right"> 
+        <button class="board-btn" data-tooltip="Filter"><i class="fa-solid fa-filter"></i></button>
+        <button class="board-btn" data-tooltip="Share"><i class="fa-solid fa-user-plus"></i></button>
+        <button class="board-btn star-btn" data-tooltip="Star"><i class="fa-regular fa-star"></i></button>
+        <button class="board-btn more-btn" data-tooltip="Show Menu"><i class="fa-solid fa-ellipsis"></i></button>
+     </div>
+    </nav>
+
+<main class="board-content">
+    <div class="column">
+        <div class="column-header">
+            <h3>To Do</h3>
+            <button class="column-menu-btn" data-tooltip="List Actions"><i class="fa-solid fa-ellipsis"></i></button>
+            <div class="col-dropdown">
+                <ul>
+                    <li><i class="fa-solid fa-copy"></i> Copy List</li>
+                    <li class="delete-col"><i class="fa-solid fa-trash"></i> Delete List</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-list">
+            <div class="card" draggable="true">
+                <p>HTML İskeletini Oluştur</p>
+            </div>
+            <div class="card" draggable="true">
+                <p>CSS Temellerini Araştır</p>
+            </div>
+        </div>
+        <button class="add-card-btn"><i class="fa-solid fa-plus"></i> Add a card</button>
+    </div>
+
+    <div class="column">
+        <div class="column-header">
+            <h3>In Progress</h3>
+            <button class="column-menu-btn" data-tooltip="List Actions"><i class="fa-solid fa-ellipsis"></i></button>
+            <div class="col-dropdown">
+                <ul>
+                    <li><i class="fa-solid fa-copy"></i> Copy List</li>
+                    <li class="delete-col"><i class="fa-solid fa-trash"></i> Delete List</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-list"></div>
+        <button class="add-card-btn"><i class="fa-solid fa-plus"></i> Add a card</button>
+    </div>
+
+    <div class="column">
+        <div class="column-header">
+            <h3>DONE</h3>
+            <button class="column-menu-btn" data-tooltip="List Actions"><i class="fa-solid fa-ellipsis"></i></button>
+            <div class="col-dropdown">
+                <ul>
+                    <li><i class="fa-solid fa-copy"></i> Copy List</li>
+                    <li class="delete-col"><i class="fa-solid fa-trash"></i> Delete List</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card-list"></div>
+        <button class="add-card-btn"><i class="fa-solid fa-plus"></i> Add a card</button>
+    </div>
+
+    <div class="add-list-wrapper">
+        <button class="add-list-btn"><i class="fa-solid fa-plus"></i> Add another list</button>
+    </div>
+</main>
+<script src="scripts.js"></script>
+</body>
+</html>
