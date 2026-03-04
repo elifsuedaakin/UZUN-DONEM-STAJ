@@ -86,8 +86,8 @@ body {
 }
 /* Create Butonu Özel Stili */
 .main-header .create-btn {
-  background-color: var(--column-lila); /* Kolon rengi (Lila) */
-  color: var(--header-dark); /* Header koyu moru */
+  background-color: var(--column-lila) ; /* Kolon rengi (Lila) */
+  color: var(--header-dark) ; /* Header koyu moru */
   font-weight: bold;
   border-radius: 3px;
   padding: 6px 12px;
@@ -98,7 +98,9 @@ body {
 
 .main-header .create-btn:hover {
   filter: brightness(0.9); /* Üzerine gelince lila rengi çok hafif koyulaşır */
-  background-color: var(--column-lila); /* Rengin değişmesini engeller */
+  background-color: var(
+    --column-lila
+  ) ; /* Rengin değişmesini engeller */
 }
 /* 5. ALT HEADER (BOARD HEADER) */
 .board-header {
@@ -292,7 +294,7 @@ body {
 }
 
 .column-header .column-menu-btn {
-  background-color: transparent;
+  background-color: transparent ;
   border: none;
   color: var(--text-on-light);
   cursor: pointer;
@@ -306,7 +308,8 @@ body {
 }
 
 .column-header .column-menu-btn:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1) ;
+  
 }
 
 /* 10. LİSTE EKLEME (EN SAĞDAKİ) */
