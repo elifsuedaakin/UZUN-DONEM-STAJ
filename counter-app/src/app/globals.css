@@ -1,0 +1,117 @@
+:root {
+  --bg-color: #000000;
+  --sax-blue: #2563eb;
+  --title-white: #ffffff;
+  --muted-text: #94a3b8;
+  --border-color: #1e293b;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  font-family: sans-serif;
+  color: var(--title-white);
+}
+
+.title {
+  color: var(--title-white);
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.count-display {
+  font-size: 8rem;
+  font-weight: 800;
+  color: var(--sax-blue);
+  margin: 10px 0;
+}
+.input-card p {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: var(--title-white);
+  text-align: center;
+}
+
+.input-area {
+  margin-bottom: 15 px;
+  text-align: center;
+}
+
+.number-input {
+  background: var(--bg-color);
+  border: 1px solid var(--title-white);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100px;
+  text-align: center;
+}
+
+.set-btn {
+  background-color: var(--sax-blue);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.action-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.action-btn {
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: 1px solid var(--title-white);
+  background-color: transparent;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  background-color: var(--sax-blue);
+  border-color: var(--sax-blue);
+  transform: translateY(-2px); /* Üstüne gelince hafifçe yukarı zıplar */
+}
+.number-input::-webkit-inner-spin-button,
+.number-input::-webkit-outer-spin-button {
+  /* Tarayıcının varsayılan 'buton' görünümünü tamamen devre dışı bırakıyoruz */
+  -webkit-appearance: none;
+  appearance: none;
+
+  /* Şimdi kendi oklarımızı ve arka planımızı tanımlıyoruz */
+  background-color: transparent;
+
+  /* Okların kendisini (resmini) geri getirelim ki tıklandığı anlaşılsın */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='20'><path d='M0 7l5-5 5 5H0zm0 6l5 5 5-5H0z' fill='white'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 15px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+/* Üstüne gelince beyazlamayı bu sayede tamamen iptal ediyoruz */
+.number-input::-webkit-inner-spin-button:hover {
+  background-color: transparent; /* Beyaz kutu artık oluşamaz çünkü appearance: none dedik */
+}
