@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) { 
   return (
-    // suppressHydrationWarning: Temalar arası geçişte hata almamanı sağlar, saat çakışşması için 
+    // suppressHydrationWarning: Temalar arası geçişte hata almamanı sağlar, saat çakışması için 
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}> 
         <ThemeProvider
